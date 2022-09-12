@@ -38,6 +38,11 @@ public class ProductManager implements ProductService{
 	}
 
 	@Override
+	public DataResult<Product> getById(int productId) {
+		return new SuccessDataResult<Product>(this.productDao.findById(productId), "Tüm datalar listelendi");
+	}
+
+	@Override
 	public Result add(Product product) {
 		this.productDao.save(product);
 		return new SuccessResult(product.getProductName() + " ürünü eklendi");

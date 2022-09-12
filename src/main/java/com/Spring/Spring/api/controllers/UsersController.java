@@ -1,6 +1,7 @@
 package com.Spring.Spring.api.controllers;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.validation.Valid;
@@ -28,6 +29,11 @@ public class UsersController {
 	public UsersController(UserService userService) {
 		super();
 		this.userService = userService;
+	}
+
+	@GetMapping(value = "/getAll")
+	public ResponseEntity<?> getAll() {
+		return ResponseEntity.ok(this.userService.getAll());
 	}
 	
 	@GetMapping(value="/getByEmail")

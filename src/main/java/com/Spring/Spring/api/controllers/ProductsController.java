@@ -32,6 +32,11 @@ public class ProductsController {
 	public DataResult<List<Product>> getAll(@RequestParam int pageNumber, @RequestParam int dataPerPage) {
 		return this.productService.getAll(pageNumber, dataPerPage);
 	}
+
+	@GetMapping("/getById")
+	public DataResult<Product> getById(@RequestParam int productId) {
+		return this.productService.getById(productId);
+	}
 	
 	@PostMapping("/add")
 	public ResponseEntity<?> add(@RequestBody Product product) {

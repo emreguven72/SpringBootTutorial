@@ -11,6 +11,8 @@ import com.Spring.Spring.core.utilities.results.Result;
 import com.Spring.Spring.core.utilities.results.SuccessDataResult;
 import com.Spring.Spring.core.utilities.results.SuccessResult;
 
+import java.util.List;
+
 @Service
 public class UserManager implements UserService {
 	
@@ -20,6 +22,11 @@ public class UserManager implements UserService {
 	public UserManager(UserDao userDao) {
 		super();
 		this.userDao = userDao;
+	}
+
+	@Override
+	public DataResult<List<User>> getAll() {
+		return new SuccessDataResult<List<User>>(this.userDao.findAll(), "Data listelendi");
 	}
 
 	@Override
